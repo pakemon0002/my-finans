@@ -4,92 +4,110 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Финансы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0a0a12;
-    --bg2:#12111c;
-    --violet:#8b5cf6;
-    --cyan:#22d3ee;
-    --gold:#f0c76a;
-    --red:#f5697a;
-    --glass:rgba(255,255,255,0.05);
-    --glass-brd:rgba(255,255,255,0.09);
-    --text:#eae8f2;
-    --text-dim:#8a879c;
+    --bg:#f6f4f1;
+    --bg2:#ffffff;
+    --violet:#7c4fe0;
+    --violet-deep:#5a35b8;
+    --cyan:#0ea5c4;
+    --gold:#c98f1f;
+    --red:#e14b63;
+    --green:#1fa87a;
+    --glass:rgba(20,12,40,0.035);
+    --glass-brd:rgba(20,12,40,0.09);
+    --text:#181322;
+    --text-dim:#726c85;
+    --text-faint:#a9a3ba;
+    --font-display:'Oswald',sans-serif;
+    --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    --font-mono:'DM Mono',monospace;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html,body{margin:0;padding:0;height:100%;overscroll-behavior-y:none;}
   body{
     background:
-      radial-gradient(circle at 15% 0%, rgba(139,92,246,0.18), transparent 45%),
-      radial-gradient(circle at 90% 15%, rgba(34,211,238,0.12), transparent 40%),
+      radial-gradient(circle at 12% -6%, rgba(124,79,224,0.10), transparent 42%),
+      radial-gradient(circle at 100% 12%, rgba(14,165,196,0.08), transparent 38%),
+      radial-gradient(circle at 40% 100%, rgba(201,143,31,0.06), transparent 45%),
       var(--bg);
     color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-family:var(--font-body);
     min-height:100%;
-    padding-bottom:100px;
+    padding-bottom:104px;
+    -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:520px;margin:0 auto;padding:18px 16px 0;}
+  .wrap{max-width:520px;margin:0 auto;padding:20px 16px 0;}
 
   /* header */
-  .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
-  .header h1{font-size:15px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);margin:0;}
+  .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+  .header h1{font-family:var(--font-display);font-size:16px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text);margin:0;}
   .period-btn{
-    font-size:12px;color:var(--gold);background:var(--glass);border:1px solid var(--glass-brd);
-    padding:6px 12px;border-radius:20px;
+    font-family:var(--font-mono);font-size:11.5px;color:var(--red);background:#fff;border:1px solid var(--glass-brd);
+    padding:7px 13px;border-radius:20px;box-shadow:0 1px 2px rgba(20,12,40,0.04);
   }
 
   /* balance hero */
   .balance-card{
     position:relative;overflow:hidden;
-    background:linear-gradient(155deg, rgba(139,92,246,0.16), rgba(34,211,238,0.08) 60%, rgba(255,255,255,0.02));
+    background:linear-gradient(155deg, rgba(124,79,224,0.07), rgba(14,165,196,0.05) 55%, #ffffff);
     border:1px solid var(--glass-brd);
-    border-radius:22px;
-    padding:24px 22px;
-    backdrop-filter:blur(20px);
-    margin-bottom:14px;
+    border-radius:24px;
+    padding:26px 22px;
+    box-shadow:0 10px 34px rgba(50,30,90,0.07), 0 1px 2px rgba(50,30,90,0.04);
+    margin-bottom:16px;
   }
   .balance-card::before{
-    content:'';position:absolute;top:-40%;right:-20%;width:200px;height:200px;
-    background:radial-gradient(circle, rgba(240,199,106,0.15), transparent 70%);
+    content:'';position:absolute;top:-45%;right:-18%;width:220px;height:220px;
+    background:radial-gradient(circle, rgba(201,143,31,0.14), transparent 70%);
     pointer-events:none;
   }
-  .balance-label{font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
-  .balance-value{font-size:38px;font-weight:700;letter-spacing:-0.02em;
-    background:linear-gradient(135deg,#fff,var(--gold) 120%);
+  .balance-label{font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;}
+  .balance-value{
+    font-family:var(--font-display);font-size:42px;font-weight:600;letter-spacing:-0.01em;
+    font-variant-numeric:tabular-nums;
+    background:linear-gradient(120deg,var(--violet-deep) 10%,var(--gold) 110%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .balance-value.negative{background:linear-gradient(135deg,#fff,var(--red) 120%);-webkit-background-clip:text;background-clip:text;}
-  .sub-row{display:flex;gap:10px;margin-top:16px;}
-  .sub-stat{flex:1;background:rgba(255,255,255,0.03);border:1px solid var(--glass-brd);border-radius:14px;padding:10px 12px;}
-  .sub-stat .lbl{font-size:11px;color:var(--text-dim);margin-bottom:3px;}
-  .sub-stat .val{font-size:16px;font-weight:600;}
+  .balance-value.negative{background:linear-gradient(120deg,var(--violet-deep) 10%,var(--red) 110%);-webkit-background-clip:text;background-clip:text;}
+  .sub-row{display:flex;gap:10px;margin-top:18px;}
+  .sub-stat{flex:1;background:rgba(255,255,255,0.6);border:1px solid var(--glass-brd);border-radius:14px;padding:10px 12px;}
+  .sub-stat .lbl{font-family:var(--font-mono);font-size:10.5px;color:var(--text-dim);margin-bottom:4px;}
+  .sub-stat .val{font-family:var(--font-mono);font-size:15.5px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--text);}
   .sub-stat.income .val{color:var(--cyan);}
   .sub-stat.expense .val{color:var(--red);}
+  .sub-stat.today .val{color:var(--gold);}
+
+  .filter-tabs{display:flex;gap:8px;margin-bottom:10px;}
+  .filter-tab{flex:1;text-align:center;padding:9px;border-radius:12px;font-size:12.5px;font-weight:600;color:var(--text-dim);background:#fff;border:1px solid var(--glass-brd);}
+  .filter-tab.active{color:#fff;background:linear-gradient(135deg,var(--violet),var(--cyan));border-color:transparent;box-shadow:0 4px 14px rgba(124,79,224,0.28);}
 
   /* categories breakdown */
-  .section-title{font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;margin:20px 0 10px 4px;}
+  .section-title{font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin:22px 0 10px 4px;}
   .cat-list{display:flex;flex-direction:column;gap:8px;margin-bottom:6px;}
-  .cat-row{display:flex;align-items:center;gap:10px;background:var(--glass);border:1px solid var(--glass-brd);border-radius:14px;padding:10px 12px;}
+  .cat-row{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--glass-brd);border-radius:14px;padding:11px 12px;box-shadow:0 1px 3px rgba(50,30,90,0.04);}
   .cat-icon{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
   .cat-info{flex:1;min-width:0;}
   .cat-name{font-size:13.5px;font-weight:500;}
-  .cat-bar{height:4px;border-radius:2px;background:rgba(255,255,255,0.06);margin-top:5px;overflow:hidden;}
+  .cat-bar{height:4px;border-radius:2px;background:rgba(20,12,40,0.06);margin-top:6px;overflow:hidden;}
   .cat-bar-fill{height:100%;border-radius:2px;}
-  .cat-amount{font-size:13.5px;font-weight:600;white-space:nowrap;}
+  .cat-amount{font-family:var(--font-mono);font-size:13px;font-weight:500;white-space:nowrap;}
 
   /* transactions list */
   .tx-list{display:flex;flex-direction:column;gap:8px;}
-  .tx-row{display:flex;align-items:center;gap:12px;background:var(--glass);border:1px solid var(--glass-brd);border-radius:14px;padding:11px 12px;}
+  .tx-row{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--glass-brd);border-radius:14px;padding:12px;box-shadow:0 1px 3px rgba(50,30,90,0.04);}
   .tx-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
   .tx-body{flex:1;min-width:0;}
   .tx-title{font-size:13.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-  .tx-meta{font-size:11px;color:var(--text-dim);margin-top:2px;}
-  .tx-amount{font-size:14px;font-weight:600;white-space:nowrap;}
+  .tx-meta{font-family:var(--font-mono);font-size:10.5px;color:var(--text-dim);margin-top:3px;}
+  .tx-amount{font-family:var(--font-mono);font-size:14px;font-weight:600;white-space:nowrap;}
   .tx-amount.income{color:var(--cyan);}
   .tx-amount.expense{color:var(--red);}
-  .tx-del{width:26px;height:26px;flex-shrink:0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:16px;opacity:0.5;}
-  .empty{text-align:center;color:var(--text-dim);font-size:13px;padding:30px 10px;}
+  .tx-del{width:26px;height:26px;flex-shrink:0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--text-faint);font-size:16px;}
+  .empty{text-align:center;color:var(--text-dim);font-size:13px;padding:36px 10px;}
 
   /* fab */
   .fab{
@@ -97,62 +115,69 @@
     width:58px;height:58px;border-radius:50%;
     background:linear-gradient(135deg,var(--violet),var(--cyan));
     display:flex;align-items:center;justify-content:center;
-    box-shadow:0 8px 30px rgba(139,92,246,0.45), 0 0 0 1px rgba(255,255,255,0.1) inset;
-    font-size:28px;color:#0a0a12;font-weight:300;
+    box-shadow:0 10px 28px rgba(124,79,224,0.38), 0 0 0 1px rgba(255,255,255,0.5) inset;
+    font-size:28px;color:#fff;font-weight:300;
     z-index:50;
   }
 
   /* sheet */
-  .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);backdrop-filter:blur(3px);z-index:100;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+  .overlay{position:fixed;inset:0;background:rgba(20,12,30,0.4);backdrop-filter:blur(2px);z-index:100;opacity:0;pointer-events:none;transition:opacity 0.25s;}
   .overlay.open{opacity:1;pointer-events:auto;}
   .sheet{
     position:fixed;left:0;right:0;bottom:0;z-index:101;
     background:var(--bg2);
     border-top:1px solid var(--glass-brd);
-    border-radius:24px 24px 0 0;
+    border-radius:26px 26px 0 0;
     padding:8px 18px 26px;
+    box-shadow:0 -10px 40px rgba(50,30,90,0.14);
     transform:translateY(100%);
     transition:transform 0.3s cubic-bezier(.32,.72,0,1);
     max-height:88vh;overflow-y:auto;
   }
   .sheet.open{transform:translateY(0);}
-  .sheet-handle{width:36px;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;margin:8px auto 16px;}
-  .sheet h2{font-size:16px;margin:0 0 16px;font-weight:600;}
+  .sheet-handle{width:36px;height:4px;background:rgba(20,12,40,0.14);border-radius:2px;margin:8px auto 16px;}
+  .sheet h2{font-family:var(--font-display);font-size:18px;margin:0 0 16px;font-weight:600;letter-spacing:0.01em;}
 
-  .type-toggle{display:flex;gap:8px;margin-bottom:16px;background:rgba(255,255,255,0.03);padding:4px;border-radius:14px;}
+  .type-toggle{display:flex;gap:8px;margin-bottom:16px;background:var(--glass);padding:4px;border-radius:14px;}
   .type-btn{flex:1;padding:10px;text-align:center;border-radius:11px;font-size:13.5px;font-weight:600;color:var(--text-dim);}
-  .type-btn.active.expense{background:rgba(245,105,122,0.15);color:var(--red);}
-  .type-btn.active.income{background:rgba(34,211,238,0.15);color:var(--cyan);}
+  .type-btn.active.expense{background:rgba(225,75,99,0.12);color:var(--red);}
+  .type-btn.active.income{background:rgba(14,165,196,0.12);color:var(--cyan);}
 
   .field{margin-bottom:14px;}
-  .field label{display:block;font-size:11.5px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:7px;}
+  .field label{display:block;font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:7px;}
   .amount-input{
-    width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--glass-brd);border-radius:14px;
-    padding:14px 14px;font-size:22px;font-weight:700;color:var(--text);font-family:inherit;
+    width:100%;background:var(--glass);border:1px solid var(--glass-brd);border-radius:14px;
+    padding:14px 14px;font-family:var(--font-mono);font-size:24px;font-weight:500;color:var(--text);
   }
+  .amount-input:focus,.text-input:focus{outline:none;border-color:var(--violet);}
   .text-input{
-    width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--glass-brd);border-radius:14px;
+    width:100%;background:var(--glass);border:1px solid var(--glass-brd);border-radius:14px;
     padding:12px 14px;font-size:14px;color:var(--text);font-family:inherit;
   }
   .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
   .cat-pick{
-    aspect-ratio:1;border-radius:14px;background:rgba(255,255,255,0.03);border:1px solid var(--glass-brd);
+    aspect-ratio:1;border-radius:14px;background:var(--glass);border:1px solid var(--glass-brd);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
   }
   .cat-pick .ic{font-size:19px;}
   .cat-pick .nm{font-size:9.5px;color:var(--text-dim);text-align:center;}
-  .cat-pick.selected{border-color:var(--violet);background:rgba(139,92,246,0.15);}
+  .cat-pick.selected{border-color:var(--violet);background:rgba(124,79,224,0.1);}
   .cat-pick.selected .nm{color:var(--text);}
 
   .save-btn{
     width:100%;padding:15px;border-radius:16px;border:none;font-size:15px;font-weight:700;margin-top:6px;
-    background:linear-gradient(135deg,var(--violet),var(--cyan));color:#0a0a12;
+    background:linear-gradient(135deg,var(--violet),var(--cyan));color:#fff;
+    box-shadow:0 8px 22px rgba(124,79,224,0.28);
   }
   .save-btn:active{opacity:0.85;}
   .note-chip{
-    font-size:11.5px;color:var(--text-dim);background:rgba(255,255,255,0.05);
+    font-size:11.5px;color:var(--text-dim);background:#fff;
     border:1px solid var(--glass-brd);padding:6px 11px;border-radius:14px;
   }
+
+  /* sparkline signature */
+  .spark-wrap{margin-top:16px;padding-top:14px;border-top:1px solid var(--glass-brd);}
+  .spark-label{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;display:flex;justify-content:space-between;}
 </style>
 </head>
 <body>
@@ -165,16 +190,26 @@
 
   <div class="balance-card">
     <div class="balance-label">Баланс</div>
-    <div class="balance-value" id="balanceValue">0 ₴</div>
+    <div class="balance-value" id="balanceValue">0,00 ₴</div>
     <div class="sub-row">
       <div class="sub-stat income">
         <div class="lbl">Доход</div>
-        <div class="val" id="incomeValue">0 ₴</div>
+        <div class="val" id="incomeValue">0,00 ₴</div>
       </div>
       <div class="sub-stat expense">
         <div class="lbl">Расход</div>
-        <div class="val" id="expenseValue">0 ₴</div>
+        <div class="val" id="expenseValue">0,00 ₴</div>
       </div>
+    </div>
+    <div class="sub-row" style="margin-top:8px;">
+      <div class="sub-stat today">
+        <div class="lbl">Сегодня потрачено</div>
+        <div class="val" id="todayValue">0,00 ₴</div>
+      </div>
+    </div>
+    <div class="spark-wrap">
+      <div class="spark-label"><span>7 дней</span><span id="sparkTotal"></span></div>
+      <svg id="sparkSvg" viewBox="0 0 300 46" width="100%" height="46" preserveAspectRatio="none"></svg>
     </div>
   </div>
 
@@ -182,6 +217,11 @@
   <div class="cat-list" id="catList"></div>
 
   <div class="section-title">Операции</div>
+  <div class="filter-tabs">
+    <div class="filter-tab active" data-filter="all">Все</div>
+    <div class="filter-tab" data-filter="income">Доходы</div>
+    <div class="filter-tab" data-filter="expense">Расходы</div>
+  </div>
   <div class="tx-list" id="txList"></div>
 </div>
 
@@ -199,7 +239,7 @@
 
   <div class="field">
     <label>Сумма</label>
-    <input type="number" inputmode="decimal" class="amount-input" id="amountInput" placeholder="0">
+    <input type="number" step="0.01" inputmode="decimal" class="amount-input" id="amountInput" placeholder="0">
   </div>
 
   <div class="field">
@@ -239,6 +279,7 @@ let state = { tx: [] };
 let currentType = 'expense';
 let selectedCat = null;
 let storageOk = true;
+let txFilter = 'all';
 
 const STORAGE_KEY = 'finance_tracker_data_v1';
 
@@ -280,7 +321,7 @@ function showToast(msg, isError){
 }
 
 function fmt(n){
-  return Math.round(n).toLocaleString('ru-RU') + ' ₴';
+  return n.toLocaleString('ru-RU', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' ₴';
 }
 
 function allCats(){
@@ -300,6 +341,13 @@ function render(){
   bv.classList.toggle('negative', balance < 0);
   document.getElementById('incomeValue').textContent = fmt(income);
   document.getElementById('expenseValue').textContent = fmt(expense);
+
+  const now = new Date();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  const todaySpent = state.tx.filter(t=>t.type==='expense' && t.ts >= todayStart).reduce((s,t)=>s+t.amount,0);
+  document.getElementById('todayValue').textContent = fmt(todaySpent);
+
+  renderSparkline();
 
   // category breakdown (expenses only, top 5)
   const catMap = {};
@@ -329,16 +377,17 @@ function render(){
     }).join('');
   }
 
-  // tx list, newest first
+  // tx list, newest first, filtered
   const txListEl = document.getElementById('txList');
-  const sorted = [...state.tx].sort((a,b)=>b.ts-a.ts);
+  const filtered = txFilter === 'all' ? state.tx : state.tx.filter(t=>t.type===txFilter);
+  const sorted = [...filtered].sort((a,b)=>b.ts-a.ts);
   if(sorted.length === 0){
     txListEl.innerHTML = '<div class="empty">Пока пусто. Жми + и добавляй первую операцию</div>';
   } else {
     txListEl.innerHTML = sorted.map(t=>{
       const c = getCat(t.catId);
       const d = new Date(t.ts);
-      const dateStr = d.toLocaleDateString('ru-RU', {day:'2-digit', month:'short'});
+      const dateStr = d.toLocaleDateString('ru-RU', {day:'2-digit', month:'short'}) + ' · ' + d.toLocaleTimeString('ru-RU', {hour:'2-digit', minute:'2-digit', second:'2-digit'});
       const bg = t.type === 'income' ? 'rgba(34,211,238,0.15)' : 'rgba(245,105,122,0.12)';
       return `<div class="tx-row">
         <div class="tx-icon" style="background:${bg}">${c.icon}</div>
@@ -358,6 +407,44 @@ function render(){
       save(true); render();
     };
   });
+}
+
+function renderSparkline(){
+  const now = new Date();
+  const days = [];
+  for(let i=6;i>=0;i--){
+    const d = new Date(now.getFullYear(), now.getMonth(), now.getDate()-i);
+    days.push(d.getTime());
+  }
+  const totals = days.map(dayStart=>{
+    const dayEnd = dayStart + 86400000;
+    return state.tx.filter(t=>t.type==='expense' && t.ts>=dayStart && t.ts<dayEnd).reduce((s,t)=>s+t.amount,0);
+  });
+  const sum = totals.reduce((a,b)=>a+b,0);
+  document.getElementById('sparkTotal').textContent = fmt(sum);
+
+  const max = Math.max(...totals, 1);
+  const w = 300, h = 46, pad = 4;
+  const stepX = w / (totals.length - 1);
+  const pts = totals.map((v,i)=>{
+    const x = i*stepX;
+    const y = h - pad - (v/max)*(h - pad*2);
+    return [x,y];
+  });
+  const linePath = pts.map((p,i)=>(i===0?'M':'L')+p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');
+  const areaPath = linePath + ` L${w},${h} L0,${h} Z`;
+  const svg = document.getElementById('sparkSvg');
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#7c4fe0" stop-opacity="0.22"/>
+        <stop offset="100%" stop-color="#7c4fe0" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="${areaPath}" fill="url(#sparkFill)" stroke="none"/>
+    <path d="${linePath}" fill="none" stroke="#7c4fe0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    ${pts.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="${i===pts.length-1?3.2:2}" fill="${i===pts.length-1?'#c98f1f':'#7c4fe0'}"/>`).join('')}
+  `;
 }
 
 function escapeHtml(s){
@@ -408,6 +495,15 @@ function closeSheet(){
 document.getElementById('fabAdd').onclick = openSheet;
 document.getElementById('overlay').onclick = closeSheet;
 
+document.querySelectorAll('.filter-tab').forEach(tab=>{
+  tab.onclick = ()=>{
+    txFilter = tab.dataset.filter;
+    document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    render();
+  };
+});
+
 document.getElementById('typeExpense').onclick = ()=>{
   currentType = 'expense';
   document.getElementById('typeExpense').classList.add('active');
@@ -433,7 +529,7 @@ document.getElementById('saveBtn').onclick = ()=>{
   state.tx.push({
     id: Date.now().toString(36) + Math.random().toString(36).slice(2,7),
     type: currentType,
-    amount: amount,
+    amount: Math.round(amount * 100) / 100,
     catId: selectedCat,
     note: note,
     ts: Date.now()
